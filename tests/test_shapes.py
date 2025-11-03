@@ -25,7 +25,7 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(shapes.area_rectangle(5, 3), 15)
         self.assertEqual(shapes.area_rectangle(10, 2), 20)
         self.assertEqual(shapes.area_rectangle(0, 7), 0)
-        
+
     def test_4_square(self):
         
         text_capture = StringIO()
@@ -105,7 +105,7 @@ class MyTestCase(unittest.TestCase):
 """,text_capture.getvalue())
 
 
-    def test_12_pyramid(self):
+    def test_10_pyramid(self):
         
         text_capture = StringIO()
         sys.stdout = text_capture
@@ -116,7 +116,7 @@ class MyTestCase(unittest.TestCase):
 *****
 """,text_capture.getvalue())
 
-    def test_13_pyramid(self):
+    def test_11_pyramid(self):
         
         text_capture = StringIO()
         sys.stdout = text_capture
