@@ -1,3 +1,6 @@
+import io
+import shapes
+import re
 # TODO: Complete the following functions that compute the area of the shapes below
 
 def area_square(side:int)->int:
@@ -12,7 +15,7 @@ def area_square(side:int)->int:
         int: The area of the square.
     """
     
-    return 0
+    return side * side
 
 
 def area_triangle(base:int, height:int)->float:
@@ -28,7 +31,7 @@ def area_triangle(base:int, height:int)->float:
         float: The area of the triangle.
     """
     
-    return 0.0
+    return (1/2 * base * height)
 
 def area_circle(radius:int)->float:
     
@@ -38,12 +41,13 @@ def area_circle(radius:int)->float:
     Parameters:
         radius (int): The radius of the circle. Must be a positive integer.
         
-    Returns:
+    Returns:text_capture = StringIO()
+        sys.stdout = text_capture
+        shapes.draw_triangle(5)
         float: The area of the circle.
     """
-    
-    return 0.0
 
+    return (3.14 * (radius ** 2))
 def area_rectangle(length:int, width:int)->int:
     
     """
@@ -57,7 +61,7 @@ def area_rectangle(length:int, width:int)->int:
         int: The area of the rectangle.
     """
     
-    return 0
+    return length * width
 
 
 # TODO: Complete the required shapes below
@@ -74,7 +78,8 @@ def draw_square(height:int)->None:
         None: Prints the square pattern directly to console.
         
     """
-    pass
+    for i in range(height):
+        print('*' * height)
 
 def draw_pyramid(height:int)->None:
     
@@ -88,8 +93,13 @@ def draw_pyramid(height:int)->None:
         None: Prints the pyramid pattern directly to console.
         
     """
-    
-    pass
+    ['  *  ', ' *** ', '*****']
+    k = '*'
+    for i in range(height):
+        print(k.rjust(height + i))
+        k += '**'
+
+print(draw_pyramid(3))
 
 def draw_triangle(height:int)->None:
     
@@ -105,7 +115,10 @@ def draw_triangle(height:int)->None:
         
     """
     
-    pass
+    k = ''
+    for i in range(1, 1 + height):
+        k += str(i) + ' '
+        print(k)
 
 def draw_triangle_reversed(height:int)->None:
     
@@ -121,8 +134,10 @@ def draw_triangle_reversed(height:int)->None:
         
 
     """
-    
-    pass
+    k = height
+    for i in range(1, 1+ height):
+        print(f'{i} ' * k)
+        k -= 1
 
 
 
@@ -149,4 +164,13 @@ def draw(shape:str, height:int)->None:
     
     if shape == "pyramid":
         draw_pyramid(height)
+    elif shape == 'square':
+        draw_square(height)
+    elif shape == 'triangle':
+        draw_square(height)
+    elif shape == 'triangle_reversed':
+        draw_square(height)
+    else:
+        pass
+    
 
